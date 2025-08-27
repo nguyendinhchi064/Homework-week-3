@@ -1,0 +1,31 @@
+[books]
+    *id {label:"UUID"}
+    author {label:"VARCHAR"}
+    available_copies {label:"INTEGER"}
+    created_at {label:"TIMESTAMP"}
+    image_url_l {label:"VARCHAR"}
+    image_url_m {label:"VARCHAR"}
+    image_url_s {label:"VARCHAR"}
+    isbn {label:"VARCHAR"}
+    published_year {label:"INTEGER"}
+    publisher {label:"VARCHAR"}
+    title {label:"VARCHAR"}
+    total_copies {label:"INTEGER"}
+    updated_at {label:"TIMESTAMP"}
+[rentals]
+    *id {label:"UUID"}
+    book_id {label:"UUID"}
+    due_date {label:"DATE"}
+    quantity {label:"INTEGER"}
+    rented_at {label:"TIMESTAMP"}
+    returned_at {label:"TIMESTAMP"}
+    user_id {label:"UUID"}
+[users]
+    *id {label:"UUID"}
+    created_at {label:"TIMESTAMP"}
+    email {label:"VARCHAR"}
+    name {label:"VARCHAR"}
+    phone {label:"VARCHAR"}
+    updated_at {label:"TIMESTAMP"}
+books."id" 1--* rentals."book_id"
+users."id" 1--* rentals."user_id"
